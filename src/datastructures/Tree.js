@@ -30,8 +30,9 @@ export default class Tree{
     }
 
     rebalance(){
-        let arr = this.traversal()
-        this.buildTree(arr)
+        let arr = this.traversal().sort((a, b) => a > b ? 1 : -1)
+        console.log(arr);
+        this.root = this.buildTree(arr)
     }
 
     traversal(){
@@ -94,7 +95,7 @@ export default class Tree{
 
 
         }
-        postOrderTraversal(root, callback)
+        postOrderTraversal(this.root, callback)
     }
 
     inOrder(callback){
@@ -111,7 +112,7 @@ export default class Tree{
 
 
         }
-        inOrderTraversal(root, callback)
+        inOrderTraversal(this.root, callback)
     }
 
     preOrder(callback){
@@ -128,7 +129,7 @@ export default class Tree{
 
 
         }
-        preOrderTraversal(root, callback)
+        preOrderTraversal(this.root, callback)
     }
 
     levelOrder(callback){
